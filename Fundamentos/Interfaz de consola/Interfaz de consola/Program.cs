@@ -20,7 +20,6 @@
             int dato = Console.CursorLeft; // obtener posicion horizontal del cursor, con CursorTop obtenemos la posicion vertical
             Console.WriteLine(dato);
 
-
             // Ejemplo de menu interactivo
 
             // Configurar la consola
@@ -88,95 +87,21 @@
 
 
 
-            //// Ejemplo de barra de progreso
-            //Console.Clear();
-
-            //MostrarBarraDeProgreso(ConsoleColor.Blue);
-            //Console.ReadLine();
-            //Console.Clear();
-
             // Ejemplo de viñetas
             Console.WriteLine("Lista de Tareas:");
             Console.WriteLine("• Tarea 1: Completar el informe");
             Console.WriteLine("• Tarea 2: Revisar correos");
             Console.WriteLine("• Tarea 3: Reunión a las 3:00 PM");
 
-            
-            //// Ejemplo de toolips
-            //Console.WriteLine("Presiona una tecla para más información...");
-            //Console.ReadKey(); // Espera a que el usuario presione una tecla
-            //Console.SetCursorPosition(2, Console.CursorTop + 1); // Mueve el cursor 2 líneas abajo
-            //Console.WriteLine("Tooltip: La opción seleccionada muestra más detalles.");
-            //Console.ReadLine();
-            //Console.Clear();
 
-
-            // Otro ejemplo de barra de progreso
-            //MostrarBarraProgresoArchivo(ConsoleColor.Red);
-            //Console.ReadLine();
-            //Console.Clear();
-            
-
-
-            Tarea tarea = new("Tarea 1", 90);
-            tarea.MostrarTarea();
-
+            // Ejemplo de toolips
+            Console.WriteLine("Presiona una tecla para más información...");
+            Console.ReadKey(); // Espera a que el usuario presione una tecla
+            Console.SetCursorPosition(2, Console.CursorTop + 1); // Mueve el cursor 2 líneas abajo
+            Console.WriteLine("Tooltip: La opción seleccionada muestra más detalles.");
             Console.ReadLine();
             Console.Clear();
 
-            Console.ReadKey();
-        }
-
-        // Se crean nuevos strings en cada iteración, menos eficiente
-        public static void MostrarBarraDeProgreso(ConsoleColor color)
-        {
-            Console.WriteLine("Procesando...");
-
-            for (int i = 0; i <= 100; i++)
-            {
-                Console.SetCursorPosition(0, 1); 
-                Console.ForegroundColor = color;
-
-                Console.Write($"[");
-                // Parte completada de la barra
-                Console.Write(new string('=', i / 2));
-                // Espacios restantes
-                Console.Write(new string(' ', 50 - i / 2)); 
-                Console.Write($"] {i}%");
-                Console.ResetColor();
-                Thread.Sleep(50); 
-            }
-
-            Console.WriteLine("\nCompletado!");
-            Console.ReadKey();
-
-        }
-        public static void MostrarBarraProgresoArchivo(ConsoleColor color)
-        {
-
-            Console.WriteLine("Descargando archivo...");
-            for (int i = 0; i <= 100; i++)
-            {
-                Console.SetCursorPosition(0, 1);
-                Console.ForegroundColor = color;
-
-                Console.Write("[");
-                for (int j = 0; j < i / 2; j++)
-                {
-                    Console.Write("="); // Progreso completado
-                }
-                for (int j = i / 2; j < 50; j++)
-                {
-                    Console.Write(" "); // Espacios restantes
-                }
-                Console.Write($"] {i}%");
-                Console.ResetColor();
-
-                Thread.Sleep(100); // Simular descarga
-            }
-
-            Console.SetCursorPosition(0, 3);
-            Console.WriteLine("Descarga completada!");
         }
     }
 }
